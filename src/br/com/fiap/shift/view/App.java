@@ -11,11 +11,12 @@ public class App {
 		int resp = 0, faltas = 0, idade = 0, indice = 0, qtd = 0;
 
 		double media = 0;
+
 		String nome = null;
 
 		qtd = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de Alunos"));
 
-		Aluno[] alunos = new Aluno[qtd];
+		Aluno alunos[] = new Aluno[qtd];
 
 		while (resp == 0 && indice < qtd) {
 
@@ -55,6 +56,24 @@ public class App {
 
 		System.out.println("Aluno mais novo: " + alunoMaisNovo(alunos));
 
+	}
+
+	public static int menor(int[] numeros) {
+		int menor = Integer.MAX_VALUE; //(2^32)-1 
+		for (int n : numeros) {
+			if (menor > n)
+				menor = n;
+		}
+		return menor;
+	}
+
+	public static int maior(int[] numeros) {
+		int maior = Integer.MIN_VALUE; //-(2^32) 
+		for (int n : numeros) {
+			if (maior < n)
+				maior = n;
+		}
+		return maior;
 	}
 
 	private static Aluno alunoMaisNovo(Aluno[] alunos) {
@@ -97,6 +116,7 @@ public class App {
 			soma += a.getMedia();
 		}
 		return soma / alunos.length;
+
 	}
 
 }
